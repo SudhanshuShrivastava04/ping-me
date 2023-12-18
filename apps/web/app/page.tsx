@@ -30,7 +30,7 @@ function Gradient({
 }
 
 const page: FC<pageProps> = () => {
-  const { sendMessage } = UseSocket();
+  const { sendMessage, messages } = UseSocket();
   const [message, setMessage] = useState("");
   return (
     <main className={styles.main}>
@@ -50,6 +50,8 @@ const page: FC<pageProps> = () => {
           </div>
 
           <div className={styles.grid}>
+            {messages?.map((e) => <li>{e}</li>)}
+
             <div className={styles.card}>
               <div className={styles.chatbox}>
                 <input
@@ -58,7 +60,10 @@ const page: FC<pageProps> = () => {
                 />
                 <button
                   className={styles.button}
-                  onClick={(e) => sendMessage(message)}
+                  onClick={(e) => {
+                    sendMessage(message);
+                    setMessage("");
+                  }}
                 >
                   Send
                 </button>
