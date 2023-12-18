@@ -21,7 +21,7 @@ class SocketService {
     io.on("connect", (socket) => {
       console.log(`new Socket Connected`, socket.id);
 
-      socket.on("event: message", async ({ message }: { message: string }) => {
+      socket.on("event:message", async ({ message }: { message: string }) => {
         console.log("New Message Recieved", message);
       });
     });
