@@ -20,7 +20,7 @@ Tired of laggy, disconnected, and boring chat experiences? Buckle up, because th
 
 ** Getting Started: It's Easier Than Taking Candy From a Baby:**
 
-1. **Clone the Repo:** https://[your_github_repo_url] (Don't forget to replace it with your actual repo URL!)
+1. **Clone the Repo:**https://github.com/SudhanshuShrivastava04/ping-me.git
 2. **Install the Crew:** `pnpm install` (Remember, we're rocking pnpm here!)
 3. **Fire Up the Server:** `pnpm dev` (Get ready for the chat-tastic fireworks!)
 4. **Join the Party:** Head to http://localhost:3000 and let the good times roll!
