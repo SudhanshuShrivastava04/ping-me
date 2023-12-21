@@ -33,47 +33,59 @@ const page: FC<pageProps> = () => {
   const { sendMessage, messages } = UseSocket();
   const [message, setMessage] = useState("");
   return (
-    <main className={styles.main}>
-      <div className={styles.heroContent}>
-        <div className={styles.logos}>
-          <div className={styles.circles}>
-            <Image
-              alt="Turborepo"
-              height={614}
-              src="circles.svg"
-              width={614}
-              style={{ pointerEvents: "none" }}
-            />
-          </div>
-          <div className={styles.logoGradientContainer}>
-            <Gradient className={styles.logoGradient} conic small />
-          </div>
+    <>
+      <main className={styles.main}>
+        <div className={styles.heroContent}>
+          <div className={styles.logos}>
+            <div className={styles.circles}>
+              <Image
+                alt="Turborepo"
+                height={614}
+                src="circles.svg"
+                width={614}
+                style={{ pointerEvents: "none" }}
+              />
+            </div>
+            <div className={styles.logoGradientContainer}>
+              <Gradient className={styles.logoGradient} conic small />
+            </div>
 
-          <div className={styles.grid}>
-            {messages?.map((e) => <li>{e}</li>)}
+            <div className={styles.grid}>
+              {messages?.map((e) => (
+                <div key={e} className={styles.chatsContainer}>
+                  <div className={styles.chats}>{e}</div>
+                </div>
+              ))}
 
-            <div className={styles.card}>
-              <div className={styles.chatbox}>
-                <input
-                  placeholder="Ping your message here !"
-                  onChange={(e) => setMessage(e.target.value)}
-                />
-                <button
-                  className={styles.button}
-                  onClick={(e) => {
-                    sendMessage(message);
-                    setMessage("");
-                  }}
-                >
-                  Send
-                </button>
+              <div className={styles.card}>
+                <div className={styles.chatbox}>
+                  <input
+                    placeholder="Ping your message here !"
+                    onChange={(e) => setMessage(e.target.value)}
+                  />
+                  <button
+                    className={styles.button}
+                    onClick={(e) => {
+                      sendMessage(message);
+                      setMessage("");
+                    }}
+                  >
+                    Send
+                  </button>
+                </div>
               </div>
             </div>
           </div>
+          <Gradient className={styles.backgroundGradient} conic />
         </div>
-        <Gradient className={styles.backgroundGradient} conic />
-      </div>
-    </main>
+        <footer className={styles.footer}>
+          Pub/Sub model by -{" "}
+          <a href="https://github.com/SudhanshuShrivastava04" target="_blank">
+            @SudhanshuShrivastava
+          </a>
+        </footer>
+      </main>
+    </>
   );
 };
 
